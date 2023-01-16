@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.transform.CircleCropTransformation
 import ru.stas.photogallery.api.GalleryItem
 import ru.stas.photogallery.databinding.ListItemGalleryBinding
 
@@ -29,7 +30,12 @@ class PhotoListAdapter(private val galleryItem: List<GalleryItem>)
         private val binding: ListItemGalleryBinding
     ): RecyclerView.ViewHolder(binding.root){
         fun bind(galleryItem: GalleryItem){
-            binding.itemImageView.load(galleryItem.url)
+            binding.itemImageView.load(galleryItem.url){
+                placeholder(R.drawable.bill_up_close)
+//                transformations(
+//                    CircleCropTransformation()
+//                )
+            }
         }
     }
 }
