@@ -28,5 +28,4 @@ class PhotoRepository {
 
     suspend fun searchPhoto(query: String): List<GalleryItem> =
         flickrApi.searchPhotos(query).photos.galleryItems
-
 }
