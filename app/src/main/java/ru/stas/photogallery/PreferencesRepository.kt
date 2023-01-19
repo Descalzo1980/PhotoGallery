@@ -59,5 +59,4 @@ class PreferencesRepository private constructor(
             )
         }
     }
-
 }

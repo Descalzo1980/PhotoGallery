@@ -5,7 +5,6 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import android.os.Build.VERSION_CODES.O
 
 const val NOTIFICATION_CHANNEL_ID = "flickr_poll"
 
