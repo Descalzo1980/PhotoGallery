@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.*
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -59,11 +61,18 @@ class PhotoGalleryFragment: Fragment() {
                         photoPageUri ->
 //                        val intent = Intent(Intent.ACTION_VIEW,photoPageUri)
 //                        startActivity(intent)
-                        findNavController().navigate(
-                            PhotoGalleryFragmentDirections.showPhoto(
-                                photoPageUri
-                            )
-                        )
+//                        findNavController().navigate(
+//                            PhotoGalleryFragmentDirections.showPhoto(
+//                                photoPageUri
+//                            )
+//                        )
+                        CustomTabsIntent.Builder()
+                            .setToolbarColor(
+                                ContextCompat.getColor(
+                                requireContext(), com.google.android.material.R.color.design_default_color_primary))
+                            .setShowTitle(true)
+                            .build()
+                            .launchUrl(requireContext(), photoPageUri)
                     }
                     searchView?.setQuery(state.query,false)
                     updatePollingState(state.isPolling)
